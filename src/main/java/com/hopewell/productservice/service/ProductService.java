@@ -1,6 +1,7 @@
 package com.hopewell.productservice.service;
 
-import com.hopewell.productservice.error.ProductNotFoundException;
+import com.hopewell.productservice.model.Address;
+import com.hopewell.productservice.model.Manufacture;
 import com.hopewell.productservice.model.Product;
 import com.hopewell.productservice.respository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,7 +20,14 @@ public class ProductService {
 
     public Product addProduct(Product product) {
         product.setCreatedDate(LocalDateTime.now());
-        return productRepository.save(product);
+
+        Address address = new Address("sdsdsds");
+        Product product1 = new Product(
+                null,product.getName(),
+                product.getDescription(),
+                product.getCategory(), product.getCreatedDate()
+                ,product.getPrice(),new  Manufacture("South Africa","Newcastle"),address);
+        return productRepository.save(product1);
     }
 
     public List<Product> retrieveAll() {
@@ -28,7 +36,7 @@ public class ProductService {
 
     public Product retrieveSingleProduct(Long id) {
         return  productRepository.
-                findById(id).orElseThrow(ProductNotFoundException::new);
+                findById(id).orElseThrow();
     }
 
     public List<Product> deleteProduct(Long id) {

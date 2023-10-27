@@ -1,6 +1,7 @@
 package com.hopewell.productservice.controller;
 
 import com.hopewell.productservice.model.Product;
+
 import com.hopewell.productservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
