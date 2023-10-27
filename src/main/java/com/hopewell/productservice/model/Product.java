@@ -33,4 +33,10 @@ public class Product {
 
     @Column(name = "price")
     private Double price;
+
+    @Embedded
+    private Manufacture manufacture;
+
+    @Embedded
+    private Address address;
 }
